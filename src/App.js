@@ -11,7 +11,7 @@ import Layout from './components/Layout';
 import { clearUser, getStoredUser, logoutUser, saveUser } from './services/auth';
 
 // Configuration de l'URL de base de l'API
-const API_BASE_URL = (process.env.REACT_APP_API_URL || 'http://red-product-api.railway.app/api').replace(/\/$/, '');
+const API_BASE_URL = (process.env.REACT_APP_API_URL || 'https://red-product-db-production.up.railway.app/api').replace(/\/$/, '');
 const HotelList = ({ hotels, onAddHotel, currentUser, onLogout }) => (
 
 
