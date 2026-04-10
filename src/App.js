@@ -94,12 +94,16 @@ const App = () => {
     setShowModal(false);
     window.location.href = '/';
   };
-
+//  afficher les donées de la base de données et en cas d'erreur afficher les données statiques
+const vite_env = import.meta.env; 
+const API_BASE_URL = (vite_env.REACT_APP_API_URL || 'https://red-product-db-production.up.railway.app/api').replace(/\/$/, '');
   const fetchHotels = async () => {
     try {
+      // Utiliser l'URL de base configurée pour faire la requête
       const response = await axios.get(`${API_BASE_URL}/hotels`);
       setHotels(response.data);
     } catch (error) {
+      
       console.error('Erreur lors de la récupération des hôtels:', error);
       // En cas d'erreur, utiliser les données statiques comme fallback
       setHotels([
@@ -122,6 +126,8 @@ const App = () => {
   const refreshHotels = () => {
     fetchHotels();
   };
+  
+  
 
   // Ancienne liste statique supprimée
 

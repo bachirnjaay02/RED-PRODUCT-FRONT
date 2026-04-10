@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 // Configuration de l'URL de base de l'API
-const API_BASE_URL = (process.env.REACT_APP_API_URL || 'https://https://postgres-production-117b.up.railway.app//api').replace(/\/$/, '');
+const API_BASE_URL = (process.env.REACT_APP_API_URL || 'https://red-product-db-production.up.railway.app/api').replace(/\/$/, '');
 
 const AddHotelModal = ({ isOpen, onClose, onRefresh }) => {
   const [hotelData, setHotelData] = useState({
@@ -45,6 +45,7 @@ const AddHotelModal = ({ isOpen, onClose, onRefresh }) => {
       data.append('image', selectedFile);
     }
 
+    // Envoi de la requête POST à l'API Laravel
     try {
       await axios.post(`${API_BASE_URL}/hotels`, data, {
         headers: {
